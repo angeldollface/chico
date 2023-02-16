@@ -1,0 +1,24 @@
+[package]
+name = "chico"
+version = "1.0.0"
+edition = "2021"
+license = "MIT"
+authors = ["Angel Dollface"]
+description= "A tiny library to work with base-10, base-16, and base-2 numbers in Rust!"
+homepage = "https://github.com/angeldollface/chico"
+repository = "https://github.com/angeldollface/chico"
+documentation = "https://github.com/angeldollface/chico"
+readme = "README.markdown"
+keywords = [
+    "mathematics",
+    "hexadecimal",
+    "binary"
+]
+categories = [
+    "mathematics",
+    "hexadecimal",
+    "binary"
+]
+exclude = [
+    "/.github"
+]
