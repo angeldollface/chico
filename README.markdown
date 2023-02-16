@@ -17,7 +17,7 @@ To use *Chico* in your projects, add this to your `Cargo.toml`:
 chico = { git = "https://github.com/angeldollface/chico", branch = "main" }
 ```
 
-## USAGE
+## USAGE :hammer:
 
 To import *Chico*'s API, put this line of code inside your Rust code:
 
@@ -26,15 +26,17 @@ use chico::*;
 ```
 
 To refer to *Chico*'s API, peruse the [`src`](src) directory.
+To get some more concrete usage examples of *Chico*'s methods,
+peruse this library's [unit tests](./src/modules/tests.rs).
 
-## CHANGELOG
+## CHANGELOG :black_nib:
 
 ### Version 1.0.0
 
 - Initial release.
 - Upload to GitHub.
 
-## NOTE
+## NOTE :scroll:
 
 - *Chico :clown_face: :blond_haired_person:* by Alexander Abraham :black_heart: a.k.a. *"Angel Dollface" :dolls: :ribbon:*
 - Licensed under the MIT license.
