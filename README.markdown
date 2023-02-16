@@ -27,7 +27,7 @@ use chico::*;
 
 To refer to *Chico*'s API, peruse the [`src`](src) directory.
 To get some more concrete usage examples of *Chico*'s methods,
-peruse this library's [unit tests](./src/modules/tests.rs).
+peruse this library's [`unit tests`](./src/modules/tests.rs).
 
 ## CHANGELOG :black_nib:
 
