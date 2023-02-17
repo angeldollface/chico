@@ -82,3 +82,33 @@ pub fn dec_to_hex(decimal: &u32) -> String {
     result = nums.join("");
     return result;
 }
+
+/// Checks whether the supplied
+/// string is a hexadecimal number. Returns
+/// a boolean depending on if this is
+/// the case or not.
+pub fn is_hex(subject: &String) -> bool {
+    let mut result: bool = true;
+    let alphabet: Vec<String> = clean_split(
+        &String::from("123456789ABCDEF"),
+        &String::from("")
+    );
+    let chars: Vec<String> = clean_split(
+        subject, 
+        &String::from("")
+    );
+    if chars.len() != 6 {
+        result = false;
+    }
+    else {
+        for i in chars{
+            if alphabet.contains(&i){
+                // Do nothing.
+            }
+            else {
+                result = false;
+            }
+        }
+    }
+    return result;
+}

@@ -7,19 +7,27 @@ Licensed under the MIT license.
 /// methods from
 /// the "./utils.rs"
 /// module.
-use super::utils::*;
+use super::utils::is_num;
+use super::utils::raise_to;
+use super::utils::conv_to_num;
+use super::utils::clean_split;
+use super::utils::reverse_vec;
 
 /// We import all
 /// methods from
 /// the "./binary.rs"
 /// module.
-use super::binary::*;
+use super::binary::is_bin;
+use super::binary::dec_to_bin;
+use super::binary::bin_to_dec;
 
 /// We import all
 /// methods from
 /// the "./hexadecimal.rs"
 /// module.
-use super::hexadecimal::*;
+use super::hexadecimal::is_hex;
+use super::hexadecimal::hex_to_dec;
+use super::hexadecimal::dec_to_hex;
 
 /// Tests the "clean_split" method from
 /// "./utils.rs".
@@ -112,6 +120,26 @@ pub fn test_dec_to_bin(){
     );
 }
 
+/// Tests the "is_bin"
+/// method from "./binary.rs".
+#[test]
+pub fn test_is_bin(){
+    let init_true: String = String::from("1010101");
+    let init_false: String = String::from("1010102");
+    assert_eq!(
+        is_bin(
+            &init_true
+        ),
+        true
+    );
+    assert_eq!(
+        is_bin(
+            &init_false
+        ),
+        false
+    )
+}
+
 /// Tests the "hex_to_dec"
 /// method from "./hexadecimal.rs".
 #[test]
@@ -134,5 +162,25 @@ pub fn test_dec_to_hex(){
         dec_to_hex(&init),
         result
     );
+}
+
+/// Tests the "is_hex"
+/// method from "./hexadecimal.rs".
+#[test]
+pub fn test_is_hex(){
+    let init_true: String = String::from("1A1A1A");
+    let init_false: String = String::from("101010X");
+    assert_eq!(
+        is_hex(
+            &init_true
+        ),
+        true
+    );
+    assert_eq!(
+        is_hex(
+            &init_false
+        ),
+        false
+    )
 }
 

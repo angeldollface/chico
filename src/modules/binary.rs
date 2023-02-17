@@ -15,8 +15,8 @@ use super::utils::clean_split;
 /// to reverse a vector.
 use super::utils::reverse_vec;
 
-// Attempts to convert a binary number as a string
-// into a base-10 number and return it.
+/// Attempts to convert a binary number as a string
+/// into a base-10 number and return it.
 pub fn bin_to_dec(bin: &String) -> u32 {
     let mut result: u32 = 0;
     let bin_chars: Vec<String> = clean_split(bin, &String::from(""));
@@ -51,3 +51,25 @@ pub fn dec_to_bin(decimal: &u32) -> String{
     let result: String = reverse_vec(&im_result).join("");
     return result;
 }
+
+/// Checks whether the supplied
+/// string is a binary number. Returns
+/// a boolean depending on if this is
+/// the case or not.
+pub fn is_bin(subject: &String) -> bool {
+    let mut result: bool = true;
+    let chars: Vec<String> = clean_split(
+        subject, 
+        &String::from("")
+    );
+    for i in chars {
+        if i == String::from("1") || i == String::from("0"){
+            // Do nothing.
+        }
+        else {
+            result = false;
+        }
+    }
+    return result;
+}
+

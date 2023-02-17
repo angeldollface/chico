@@ -32,7 +32,7 @@ pub fn is_num(char: &String) -> bool {
     return result;
 }
 
-/// Converts string to a number.
+/// Converts a string to a number.
 /// Returns zero if the conversion cannot
 /// be completed.
 pub fn conv_to_num(char: &String) -> usize {

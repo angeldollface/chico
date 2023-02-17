@@ -17,3 +17,7 @@ pub use modules::utils::*;
 /// The "modules/binary.rs"
 /// file.
 pub use modules::binary::*;
+
+/// The "modules/hexadecimal.rs"
+/// file.
+pub use modules::hexadecimal::*;
