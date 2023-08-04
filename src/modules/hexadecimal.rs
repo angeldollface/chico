@@ -4,15 +4,20 @@ Licensed under the MIT license.
 */
 
 /// We import a function
-/// to raise one number to another.
+/// to raise one number to another
+/// from the "utils" module.
 use super::utils::raise_to;
 
-/// We import a wrapper around
-/// the "string.split" method.
+/// We import a function
+/// to split a string by
+/// separator into a vector of
+/// strings from the "utils" module.
 use super::utils::clean_split;
 
 /// We import a function
-/// to reverse a vector.
+/// to reverse the order
+/// of elements in a vector
+/// from the "utils" module.
 use super::utils::reverse_vec;
 
 /// Converts a hexadecimal number in
@@ -48,7 +53,7 @@ pub fn hex_to_dec(hex: &String) -> u32 {
     return result;
 }
 
-/// Converts a decimal number to a hexadecimal number.
+/// Converts a base-10 number to a hexadecimal number.
 pub fn dec_to_hex(decimal: &u32) -> String {
     let mut result: String = String::from("");
     let base: u32 = 16;
@@ -85,7 +90,7 @@ pub fn dec_to_hex(decimal: &u32) -> String {
 
 /// Checks whether the supplied
 /// string is a hexadecimal number. Returns
-/// a boolean depending on if this is
+/// a boolean depending on whether this is
 /// the case or not.
 pub fn is_hex(subject: &String) -> bool {
     let mut result: bool = true;

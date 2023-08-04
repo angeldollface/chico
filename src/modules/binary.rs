@@ -4,15 +4,20 @@ Licensed under the MIT license.
 */
 
 /// We import a function
-/// to raise one number to another.
+/// to raise one number to another
+/// from the "utils" module.
 use super::utils::raise_to;
 
-/// We import a wrapper around
-/// the "string.split" method.
+/// We import a function
+/// to split a string by
+/// separator into a vector of
+/// strings from the "utils" module.
 use super::utils::clean_split;
 
 /// We import a function
-/// to reverse a vector.
+/// to reverse the order
+/// of elements in a vector
+/// from the "utils" module.
 use super::utils::reverse_vec;
 
 /// Attempts to convert a binary number as a string
@@ -37,7 +42,7 @@ pub fn bin_to_dec(bin: &String) -> u32 {
     return result;
 }
 
-/// Converts a decimal number 
+/// Converts a base-10 number 
 /// to a binary number.
 pub fn dec_to_bin(decimal: &u32) -> String{
     let mut im_result: Vec<String> = Vec::new();
@@ -54,7 +59,7 @@ pub fn dec_to_bin(decimal: &u32) -> String{
 
 /// Checks whether the supplied
 /// string is a binary number. Returns
-/// a boolean depending on if this is
+/// a boolean depending on whether this is
 /// the case or not.
 pub fn is_bin(subject: &String) -> bool {
     let mut result: bool = true;
@@ -72,4 +77,3 @@ pub fn is_bin(subject: &String) -> bool {
     }
     return result;
 }
-

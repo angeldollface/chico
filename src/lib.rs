@@ -1,23 +1,17 @@
+/*
+CHICO by Alexander Abraham a.k.a. "Angel Dollface".
+Licensed under the MIT license.
+*/
+
 /// Declaring the
 /// "modules" directory
 /// as a module.
-mod modules;
+pub mod modules;
 
-// Setting up tests.
-#[cfg(test)]
-pub use modules::tests::*;
-
-/// Re-exporting the main
-/// modules.
-
-/// The "modules/utils.rs"
-/// file.
-pub use modules::utils::*;
-
-/// The "modules/binary.rs"
-/// file.
+/// We re-export the module
+/// for working with base-2 numbers.
 pub use modules::binary::*;
 
-/// The "modules/hexadecimal.rs"
-/// file.
+/// We re-export the module
+/// for working with base-16 numbers.
 pub use modules::hexadecimal::*;

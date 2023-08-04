@@ -3,7 +3,7 @@ CHICO by Alexander Abraham a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
-/// Returns a vector of strings from a character split for a string.
+/// Returns a vector of strings from a character.
 /// Both the string and split character have to be strings.
 pub fn clean_split(subject: &String, split_char: &String) -> Vec<String> {
     let mut result: Vec<String> = Vec::new();
@@ -18,33 +18,7 @@ pub fn clean_split(subject: &String, split_char: &String) -> Vec<String> {
     return result;
 }
 
-/// Checks if a string is a number or not.
-/// Returns a boolean based on the result.
-pub fn is_num(char: &String) -> bool {
-    let mut result: bool = false;
-    let match_op = char.parse::<usize>();
-    match match_op {
-        Ok(_x) => {
-            result = true;
-        },
-        Err(_e) => {}
-    };
-    return result;
-}
-
-/// Converts a string to a number.
-/// Returns zero if the conversion cannot
-/// be completed.
-pub fn conv_to_num(char: &String) -> usize {
-    let mut result: usize = 0;
-    if is_num(&char) == true {
-        result = char.parse::<usize>().unwrap();
-    }
-    else {}
-    return result;
-}
-
-/// Raises to "base" to the power of "power" and
+/// Raises the "base" to the power of "power" and
 /// returns the result.
 pub fn raise_to(base: &u32, power: &u32) -> u32 {
     return base.pow(*power);

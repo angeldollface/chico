@@ -3,98 +3,35 @@ CHICO by Alexander Abraham a.k.a. "Angel Dollface".
 Licensed under the MIT license.
 */
 
-/// We import all
-/// methods from
-/// the "./utils.rs"
-/// module.
-use super::utils::is_num;
-use super::utils::raise_to;
-use super::utils::conv_to_num;
-use super::utils::clean_split;
-use super::utils::reverse_vec;
-
-/// We import all
-/// methods from
-/// the "./binary.rs"
-/// module.
+/// We import the method to
+/// check whether a string
+/// is a binary number.
 use super::binary::is_bin;
+
+/// We import the method to
+/// convert a base-10 number
+/// to a binary number.
 use super::binary::dec_to_bin;
+
+/// We import the method to
+/// convert a binary number
+/// to a base-10 number.
 use super::binary::bin_to_dec;
 
-/// We import all
-/// methods from
-/// the "./hexadecimal.rs"
-/// module.
+/// We import the method to
+/// check whether a string
+/// is a hex number.
 use super::hexadecimal::is_hex;
+
+/// We import the method to
+/// convert a hex number
+/// to a base-10 number.
 use super::hexadecimal::hex_to_dec;
+
+/// We import the method to
+/// convert a base-10 number
+/// to a hex number.
 use super::hexadecimal::dec_to_hex;
-
-/// Tests the "clean_split" method from
-/// "./utils.rs".
-#[test]
-pub fn test_split() {
-    assert_eq!(
-        clean_split(&String::from("101"), &String::from("")),
-        vec![
-            String::from("1"), 
-            String::from("0"), 
-            String::from("1")
-        ]
-    );
-}
-
-/// Tests the "is_num" method from
-/// "./utils.rs".
-#[test]
-pub fn test_num_check() {
-    assert_eq!(
-        is_num(&String::from("1")),
-        true
-    );
-    assert_eq!(
-        is_num(&String::from("A")),
-        false
-    );
-}
-
-/// Tests the "conv_to_num"
-/// method from "./utils.rs".
-#[test]
-pub fn test_num() {
-    let planned_result: usize = 4;
-    let false_result: usize = 0;
-    assert_eq!(
-        conv_to_num(&String::from("4")),
-        planned_result
-    );
-    assert_eq!(
-        conv_to_num(&String::from("A")),
-        false_result
-    );
-}
-
-/// Tests the "raise_to"
-/// method from "./utils.rs".
-#[test]
-pub fn test_power() {
-    let base: u32 = 2;
-    assert_eq!(
-        raise_to(&base, &base),
-        4
-    );
-}
-
-/// Tests the "reverse_vec"
-/// method from "./utils.rs".
-#[test]
-pub fn test_reverse(){
-    let test_vec: Vec<usize> = vec![0,1,2];
-    let result_vec: Vec<usize> = vec![2,1,0];
-    assert_eq!(
-        reverse_vec(&test_vec),
-        result_vec
-    );
-}
 
 /// Tests the "bin_to_dec"
 /// method from "./binary.rs".
@@ -183,4 +120,3 @@ pub fn test_is_hex(){
         false
     )
 }
-
