@@ -6,7 +6,7 @@
 
 ## ABOUT
 
-Since I like numbers and I like Rust, I thought I'd port a library that I wrote in [Javascript](https://github.com/angeldollface/zeppo) and [Dart](https://github.com/angeldollface/harpo) to Rust. These three projects all have one thing in common: They all provide simple methods to convert between numbers of different bases. These bases are 2, 10, and 16. Enjoy! :heart_on_fire: *Nota bene: I like the Marx brothers.*
+Since I like numbers and I like Rust, I thought I'd port a library that I wrote in [Javascript](https://github.com/angeldollface/zeppo) and [Dart](https://github.com/angeldollface/harpo) to Rust. These three projects all have one thing in common: They all provide simple methods to convert between numbers of different bases. These bases are 2, 10, and 16. Enjoy! *Nota bene: I like the Marx brothers.*
 
 ## INSTALLATION
 
