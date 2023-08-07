@@ -13,3 +13,43 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
+      - name: "Convert a hexadecimal number. (short)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -o EA1573
+      - name: "Convert a hexadecimal number. (long)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --otl EA1573
+      - name: "Convert a hexadecimal number. (nkd)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- otl EA1573
+      - name: "Convert a binary number. (short)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -b 1010101
+      - name: "Convert a binary number. (long)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --bin 1010101
+      - name: "Convert a binary number. (nkd)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- bin 1010101
+      - name: "Report an error on a binary conversion."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --bin 101010A
+      - name: "Report an error on a hexadecimal conversion."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --hex EA1573X

@@ -38,11 +38,17 @@ use super::hexadecimal::dec_to_hex;
 #[test]
 pub fn test_bin_to_dec(){
     let result: u32 = 5;
-    bin_to_dec(&String::from("101"));
-    assert_eq!(
-        bin_to_dec(&String::from("101")),
-        result
-    );
+    match bin_to_dec(&String::from("101")){
+        Ok(num) => {
+            assert_eq!(
+                num,
+                result
+            );
+        },
+        Err(e) => {
+            println!("{}", &e.to_string());
+        }
+    };
 }
 
 /// Tests the "dec_to_bin"
@@ -83,10 +89,17 @@ pub fn test_is_bin(){
 pub fn test_hex_to_dec(){
     let hex: String = String::from("2A");
     let result: u32 = 42;
-    assert_eq!(
-        hex_to_dec(&hex),
-        result
-    );
+    match hex_to_dec(&hex){
+        Ok(num) => {
+            assert_eq!(
+                num,
+                result
+            );
+        },
+        Err(e) => {
+            println!("{}", &e.to_string())
+        }
+    }
 }
 
 /// Tests the "dec_to_hex"

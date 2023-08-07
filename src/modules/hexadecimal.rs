@@ -8,6 +8,10 @@ Licensed under the MIT license.
 /// from the "utils" module.
 use super::utils::raise_to;
 
+/// We import the data structure
+/// for catching and handling errors.
+use super::error::ChicoError;
+
 /// We import a function
 /// to split a string by
 /// separator into a vector of
@@ -22,35 +26,41 @@ use super::utils::reverse_vec;
 
 /// Converts a hexadecimal number in
 /// string format to a base-10 number.
-pub fn hex_to_dec(hex: &String) -> u32 {
-    let base: u32 = 16;
+pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;
-    let digit_set: Vec<String> = clean_split(
+    if is_hex(hex){
+        let base: u32 = 16;
+        let digit_set: Vec<String> = clean_split(
         &String::from("0123456789ABCDEF"),
         &String::from("")
-    );
-    let subject_set: Vec<String> = reverse_vec(
+        );
+        let subject_set: Vec<String> = reverse_vec(
         &clean_split(
             hex,
             &String::from("")
         )
-    );
-    for (index, element) in subject_set.iter().enumerate() {
-        let mut im_index: u32 = 0;
-        for (digit_index, digit) in digit_set.iter().enumerate() {
-            if element == digit {
-                im_index = digit_index.try_into().unwrap();
+        );
+        for (index, element) in subject_set.iter().enumerate() {
+            let mut im_index: u32 = 0;
+            for (digit_index, digit) in digit_set.iter().enumerate() {
+                if element == digit {
+                    im_index = digit_index.try_into().unwrap();
+                }
+                else {
+                    // Do nothing.
+                }
             }
-            else {
-                // Do nothing.
-            }
+            let pos_power: u32 = raise_to(&base, &index.try_into().unwrap());
+            let to_add: u32 = im_index * pos_power;
+            result += to_add;
+            im_index = 0;
         }
-        let pos_power: u32 = raise_to(&base, &index.try_into().unwrap());
-        let to_add: u32 = im_index * pos_power;
-        result += to_add;
-        im_index = 0;
     }
-    return result;
+    else {
+        let e: String = format!("The string \"{}\" is not a hex number.", hex);
+        return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()));
+    }
+    return Ok(result);
 }
 
 /// Converts a base-10 number to a hexadecimal number.
@@ -93,7 +103,7 @@ pub fn dec_to_hex(decimal: &u32) -> String {
 /// a boolean depending on whether this is
 /// the case or not.
 pub fn is_hex(subject: &String) -> bool {
-    let mut result: bool = true;
+    let mut result: bool = false;
     let alphabet: Vec<String> = clean_split(
         &String::from("123456789ABCDEF"),
         &String::from("")
@@ -102,17 +112,13 @@ pub fn is_hex(subject: &String) -> bool {
         subject, 
         &String::from("")
     );
-    if chars.len() != 6 {
-        result = false;
-    }
+    if chars.len() != 6 {}
     else {
         for i in chars{
             if alphabet.contains(&i){
-                // Do nothing.
+                result = true;
             }
-            else {
-                result = false;
-            }
+            else {}
         }
     }
     return result;

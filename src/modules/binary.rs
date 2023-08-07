@@ -8,6 +8,10 @@ Licensed under the MIT license.
 /// from the "utils" module.
 use super::utils::raise_to;
 
+/// We import the data structure
+/// for catching and handling errors.
+use super::error::ChicoError;
+
 /// We import a function
 /// to split a string by
 /// separator into a vector of
@@ -22,24 +26,28 @@ use super::utils::reverse_vec;
 
 /// Attempts to convert a binary number as a string
 /// into a base-10 number and return it.
-pub fn bin_to_dec(bin: &String) -> u32 {
+pub fn bin_to_dec(bin: &String) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;
-    let bin_chars: Vec<String> = clean_split(bin, &String::from(""));
-    let reversed: Vec<String> = reverse_vec(&bin_chars);
-    for (index, elem) in reversed.iter().enumerate() {
-        if elem == &String::from("1") {
-            let base: u32 = 2.try_into().unwrap();
-            let power: u32 = index.try_into().unwrap();
-            let to_add: u32 = raise_to(
-                &base, &power
-            );
-            result += to_add;
-        }
-        else {
-            // Do nothing.
+    if is_bin(bin){
+        let bin_chars: Vec<String> = clean_split(bin, &String::from(""));
+        let reversed: Vec<String> = reverse_vec(&bin_chars);
+        for (index, elem) in reversed.iter().enumerate() {
+            if elem == &String::from("1") {
+                let base: u32 = 2.try_into().unwrap();
+                let power: u32 = index.try_into().unwrap();
+                let to_add: u32 = raise_to(
+                    &base, &power
+                );
+                result += to_add;
+            }
+            else {}
         }
     }
-    return result;
+    else {
+        let e: String = format!("The string \"{}\" is not a binary number.", bin);
+        return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()));
+    }
+    return Ok(result);
 }
 
 /// Converts a base-10 number 
@@ -68,9 +76,7 @@ pub fn is_bin(subject: &String) -> bool {
         &String::from("")
     );
     for i in chars {
-        if i == String::from("1") || i == String::from("0"){
-            // Do nothing.
-        }
+        if i == String::from("1") || i == String::from("0"){}
         else {
             result = false;
         }

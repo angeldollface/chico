@@ -14,12 +14,12 @@ To use *Chico* in your projects, add this to your `Cargo.toml`:
 
 ```TOML
 [dependencies]
-chico = "0.1.0"
+chico = "0.2.0"
 ```
 
 ## USAGE
 
-To understand how to use *Chico* in your project, please refer to the project's [documentation](https://docs.rs/chico/0.1.0).
+To understand how to use *Chico* in your project, please refer to the project's [documentation](https://docs.rs/chico/0.2.0).
 
 ## CHANGELOG
 
@@ -27,6 +27,12 @@ To understand how to use *Chico* in your project, please refer to the project's 
 
 - Initial release.
 - Upload to GitHub.
+
+### Version 0.2.0
+
+- Added better error-handling.
+- Added a CLI tool.
+- Updated documentation.
 
 ## NOTE
 
