@@ -10,12 +10,23 @@ Since I like numbers and I like Rust, I thought I'd port a library that I wrote 
 
 ## INSTALLATION
 
-To use *Chico* in your projects, add this to your `Cargo.toml`:
+### FOR RUST PROJECTS
+
+To use ***Chico*** in your Rust project, add this line to your project's `Cargo.toml`:
 
 ```TOML
-[dependencies]
 chico = "0.2.0"
 ```
+
+### FOR THE COMMAND LINE
+
+You can install ***Chico*** via Cargo itself using this command:
+
+```bash
+cargo install chico
+```
+
+Alternatively, you can download a compiled binary for 64-bit systems from this repository's [Releases](https://github.com/angeldollface/chico/releases) section.
 
 ## USAGE
 
