@@ -24,7 +24,7 @@ use super::utils::clean_split;
 /// from the "utils" module.
 use super::utils::reverse_vec;
 
-/// Converts a hexadecimal number in
+/// Attempts to convert a hexadecimal number in
 /// string format to a base-10 number.
 pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;

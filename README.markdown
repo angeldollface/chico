@@ -30,7 +30,7 @@ To understand how to use *Chico* in your project, please refer to the project's 
 
 ### Version 0.2.0
 
-- Added better error-handling.
+- Added better handling of errors.
 - Added a CLI tool.
 - Updated documentation.
 
