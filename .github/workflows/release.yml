@@ -2,7 +2,7 @@ on:
     push:
         tags:
         - '*'
-name: Flek Release CI
+name: Chico Release CI
 jobs:
     release:
         name: ${{ matrix.target }}
@@ -40,13 +40,13 @@ jobs:
             
             - name: "Rename binary Windows."
               if: ${{ matrix.os == 'windows-latest' }}
-              run: move target/release/flek.exe target/release/flek-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.exe
+              run: move target/release/chico.exe target/release/chico-${{ steps.get_version.outputs.value }}-${{ matrix.target }}.exe
             
             - name: "Rename binary Nix."
               if: ${{ matrix.os != 'windows-latest' }}
-              run: mv target/release/flek target/release/flek-${{ steps.get_version.outputs.value }}-${{ matrix.target }}
+              run: mv target/release/chico target/release/chico-${{ steps.get_version.outputs.value }}-${{ matrix.target }}
             
             - uses: actions/upload-artifact@v3
               with:
-                name: flek-${{ steps.get_version.outputs.value }}-${{ matrix.target }}
-                path: target/release/flek-${{ steps.get_version.outputs.value }}-${{ matrix.target }}*
+                name: chico-${{ steps.get_version.outputs.value }}-${{ matrix.target }}
+                path: target/release/chico-${{ steps.get_version.outputs.value }}-${{ matrix.target }}*
