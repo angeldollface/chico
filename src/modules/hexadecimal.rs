@@ -103,7 +103,7 @@ pub fn dec_to_hex(decimal: &u32) -> String {
 /// a boolean depending on whether this is
 /// the case or not.
 pub fn is_hex(subject: &String) -> bool {
-    let mut result: bool = false;
+    let mut result: bool = true;
     let alphabet: Vec<String> = clean_split(
         &String::from("123456789ABCDEF"),
         &String::from("")
@@ -115,10 +115,10 @@ pub fn is_hex(subject: &String) -> bool {
     if chars.len() != 6 {}
     else {
         for i in chars{
-            if alphabet.contains(&i){
-                result = true;
+            if alphabet.contains(&i){}
+            else {
+                result = false;
             }
-            else {}
         }
     }
     return result;
