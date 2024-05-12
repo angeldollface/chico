@@ -112,13 +112,10 @@ pub fn is_hex(subject: &String) -> bool {
         subject, 
         &String::from("")
     );
-    if chars.len() != 6 {}
-    else {
-        for i in chars{
-            if alphabet.contains(&i){}
-            else {
-                result = false;
-            }
+    for i in chars{
+        if alphabet.contains(&i){}
+        else {
+            result = false;
         }
     }
     return result;

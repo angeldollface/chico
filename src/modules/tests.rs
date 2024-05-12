@@ -119,7 +119,7 @@ pub fn test_dec_to_hex(){
 #[test]
 pub fn test_is_hex(){
     let init_true: String = String::from("1A1A1A");
-    let init_false: String = String::from("101010X");
+    let init_false: String = String::from("10101X");
     assert_eq!(
         is_hex(
             &init_true
