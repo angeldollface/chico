@@ -1,6 +1,7 @@
 /*
-CHICO by Alexander Abraham a.k.a. "Angel Dollface".
-Licensed under the MIT license.
+CHICO by Alexander Abraham 
+a.k.a. "Angel Dollface".
+Licensed under the DSL v1.
 */
 
 /// Importing Chico's

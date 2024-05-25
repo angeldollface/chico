@@ -1,6 +1,7 @@
 /*
-CHICO by Alexander Abraham a.k.a. "Angel Dollface".
-Licensed under the MIT license.
+CHICO by Alexander Abraham 
+a.k.a. "Angel Dollface".
+Licensed under the DSL v1.
 */
 
 /// We import a function
@@ -44,7 +45,10 @@ pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
             let mut im_index: u32 = 0;
             for (digit_index, digit) in digit_set.iter().enumerate() {
                 if element == digit {
-                    im_index = digit_index.try_into().unwrap();
+                    im_index = match TryInto::<u32>::try_into(digit_index){
+                        Ok(im_index) => im_index,
+                        Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
+                    };
                 }
                 else {
                     // Do nothing.

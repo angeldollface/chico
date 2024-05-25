@@ -1,6 +1,7 @@
 /*
-CHICO by Alexander Abraham a.k.a. "Angel Dollface".
-Licensed under the MIT license.
+CHICO by Alexander Abraham 
+a.k.a. "Angel Dollface".
+Licensed under the DSL v1.
 */
 
 /// We import a function
@@ -33,8 +34,14 @@ pub fn bin_to_dec(bin: &String) -> Result<u32, ChicoError> {
         let reversed: Vec<String> = reverse_vec(&bin_chars);
         for (index, elem) in reversed.iter().enumerate() {
             if elem == &String::from("1") {
-                let base: u32 = 2.try_into().unwrap();
-                let power: u32 = index.try_into().unwrap();
+                let base: u32 = match TryInto::<u32>::try_into(2){
+                    Ok(base) => base,
+                    Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
+                };
+                let power: u32 = match index.try_into(){
+                    Ok(base) => base,
+                    Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
+                };
                 let to_add: u32 = raise_to(
                     &base, &power
                 );
