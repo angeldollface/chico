@@ -31,12 +31,12 @@ pub fn octal_to_dec(number: &String) -> Result<u32, ChicoError> {
     let mut num_chars: Vec<char> = number.chars().collect::<Vec<char>>();
     num_chars.reverse();
     for (index, character) in num_chars.into_iter().enumerate(){
-        let num: u32 = match character.try_into(){
-            Ok(num) => num,
+        let conv: u32 = match character.to_string().parse(){
+            Ok(conv) => conv,
             Err(e) => return Err::<u32,ChicoError>(ChicoError::new(&e.to_string()))
         };
         let idx: u32 = index as u32;
-        let to_add = ((8 as u32).pow(idx)) * (num + 1);
+        let to_add = ((8 as u32).pow(idx)) * conv;
         result = result + to_add;
     }
     return Ok(result);
