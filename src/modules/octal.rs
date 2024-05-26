@@ -36,7 +36,7 @@ pub fn octal_to_dec(number: &String) -> Result<u32, ChicoError> {
             Err(e) => return Err::<u32,ChicoError>(ChicoError::new(&e.to_string()))
         };
         let idx: u32 = index as u32;
-        let to_add = ((8 as u32).pow(idx)) * num;
+        let to_add = ((8 as u32).pow(idx)) * (num + 1);
         result = result + to_add;
     }
     return Ok(result);

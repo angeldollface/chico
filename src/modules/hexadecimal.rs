@@ -24,8 +24,9 @@ pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
             }
         };
         let idx: u32 = index as u32;
-        let multiplier: u32 = num as u32;
-        let to_add = ((8 as u32).pow(idx)) * multiplier;
+        let multiplier: u32 = (num as u32) + 1;
+        println!("{} {} {}", character, idx, multiplier);
+        let to_add = ((16 as u32).pow(idx)) * multiplier;
         result = result + to_add;
     }
     Ok(result)
