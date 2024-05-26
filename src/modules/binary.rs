@@ -4,57 +4,28 @@ a.k.a. "Angel Dollface".
 Licensed under the DSL v1.
 */
 
-/// We import a function
-/// to raise one number to another
-/// from the "utils" module.
-use super::utils::raise_to;
-
 /// We import the data structure
 /// for catching and handling errors.
 use super::error::ChicoError;
-
-/// We import a function
-/// to split a string by
-/// separator into a vector of
-/// strings from the "utils" module.
-use super::utils::clean_split;
-
-/// We import a function
-/// to reverse the order
-/// of elements in a vector
-/// from the "utils" module.
-use super::utils::reverse_vec;
 
 /// Attempts to convert a binary number as a string
 /// into a base-10 number and return it.
 pub fn bin_to_dec(bin: &String) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;
-    if is_bin(bin){
-        let bin_chars: Vec<String> = clean_split(bin, &String::from(""));
-        let reversed: Vec<String> = reverse_vec(&bin_chars);
-        for (index, elem) in reversed.iter().enumerate() {
-            if elem == &String::from("1") {
-                let base: u32 = match TryInto::<u32>::try_into(2){
-                    Ok(base) => base,
-                    Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
-                };
-                let power: u32 = match index.try_into(){
-                    Ok(base) => base,
-                    Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
-                };
-                let to_add: u32 = raise_to(
-                    &base, &power
-                );
-                result += to_add;
-            }
-            else {}
+    let mut bin_chars: Vec<char> = bin.chars().collect();
+    bin_chars.reverse();
+    for (index, elem) in bin_chars.iter().enumerate() {
+        if elem == &'1'{
+            let power: u32 = match index.try_into(){
+                Ok(power) => power,
+                Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
+            };
+            let to_add: u32 = (2 as u32).pow(power);
+            result += to_add;
         }
+        else {}
     }
-    else {
-        let e: String = format!("The string \"{}\" is not a binary number.", bin);
-        return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()));
-    }
-    return Ok(result);
+    Ok(result)
 }
 
 /// Converts a base-10 number 
@@ -68,7 +39,8 @@ pub fn dec_to_bin(decimal: &u32) -> String{
       let digit: String = (dec % 2).to_string();
       im_result.push(digit);
     }
-    let result: String = reverse_vec(&im_result).join("");
+    im_result.reverse();
+    let result: String = im_result.join("");
     return result;
 }
 
@@ -78,12 +50,9 @@ pub fn dec_to_bin(decimal: &u32) -> String{
 /// the case or not.
 pub fn is_bin(subject: &String) -> bool {
     let mut result: bool = true;
-    let chars: Vec<String> = clean_split(
-        subject, 
-        &String::from("")
-    );
+    let chars: Vec<char> = subject.chars().collect();
     for i in chars {
-        if i == String::from("1") || i == String::from("0"){}
+        if i == '1' || i == '0'{}
         else {
             result = false;
         }

@@ -19,11 +19,6 @@ pub mod tests;
 pub mod octal;
 
 /// We export the module
-/// with some Chico-specific
-/// utility functions.
-pub mod utils;
-
-/// We export the module
 /// for handling errors
 /// for this crate.
 pub mod error;
