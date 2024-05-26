@@ -51,7 +51,9 @@ To understand how to use *Chico* in your project, please refer to the project's 
 - Relicensed the project under the [DSL v1](https://github.com/angeldollface/doll-software-license).
 - Added support for base-8 numbers in the library.
 - Added support for base-8 numbers in the CLI.
-- Added `clippy` linting.
+- Added `clippy` linting to the CI pipeline.
+- Refactored methods for base-2, base-8, and base-16.
+- Cycled errors up to the `main` function for the CLI app.
 - Removed the `utils` module.
 
 ## NOTE
