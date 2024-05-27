@@ -13,10 +13,6 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: test
-      #- name: "Run clippy."
-      #  uses: actions-rs/cargo@v1
-      #  with:
-      #    command: clippy
       - name: "Convert a hexadecimal number. (short)"
         uses: actions-rs/cargo@v1
         with:
@@ -57,3 +53,34 @@ jobs:
         with:
           command: run
           args: -- --hex EA1573X
+      - name: "Report an error on an octal conversion."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --oct 1569
+      - name: "Convert a base-8 number to a base-10 number."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --oct 1565
+      - name: "Convert a base-10 number to a base-16 number."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --xoc --dec 42
+      - name: "Convert a base-10 number to a base-2 number."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --yoc --dec 66
+      - name: "Report an error on a conversion from a base-10 number to a base-2 number."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --yoc --dec huhu
+      - name: "Report an error on a conversion from a base-10 number to a base-16 number."
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- --xoc --dec huhu
+      
