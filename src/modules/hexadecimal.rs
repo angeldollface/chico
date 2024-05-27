@@ -10,7 +10,7 @@ use super::error::ChicoError;
 
 /// Attempts to convert a hexadecimal number in
 /// string format to a base-10 number.
-pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
+pub fn hex_to_dec(hex: &str) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;
     let mut hex_num_chars: Vec<char> = hex.chars().collect();
     hex_num_chars.reverse();
@@ -25,19 +25,19 @@ pub fn hex_to_dec(hex: &String) -> Result<u32, ChicoError> {
         };
         let idx: u32 = index as u32;
         let multiplier: u32 = (num as u32) + 1;
-        let to_add = ((16 as u32).pow(idx)) * multiplier;
-        result = result + to_add;
+        let to_add = (16_u32.pow(idx)) * multiplier;
+        result += to_add;
     }
     Ok(result)
 }
 
 /// Converts a base-10 number to a hexadecimal number.
 pub fn dec_to_hex(decimal: &u32) -> Result<String, ChicoError> {
-    let mut result: String = String::from("");
+    let result: String;
     let base: u32 = 16;
     let mut nums: Vec<String> = Vec::new();
     let alphabet: Vec<char> = "123456789ABCDEF".to_string().chars().collect();
-    let mut digit: u32 = 0;
+    let mut digit: u32;
     let mut remainder: u32 = base + 1;
     while remainder > base {
         digit = decimal / base;
@@ -76,7 +76,7 @@ pub fn dec_to_hex(decimal: &u32) -> Result<String, ChicoError> {
 /// string is a hexadecimal number. Returns
 /// a boolean depending on whether this is
 /// the case or not.
-pub fn is_hex(subject: &String) -> bool {
+pub fn is_hex(subject: &str) -> bool {
     let mut result: bool = true;
     let alphabet: Vec<char> = "123456789ABCDEF".to_string().chars().collect();
     let chars: Vec<char> = subject.chars().collect();
@@ -86,5 +86,5 @@ pub fn is_hex(subject: &String) -> bool {
             result = false;
         }
     }
-    return result;
+    result
 }

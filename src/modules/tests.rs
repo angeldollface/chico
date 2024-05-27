@@ -49,7 +49,7 @@ use super::octal::octal_to_dec;
 #[test]
 pub fn test_bin_to_dec(){
     let result: u32 = 5;
-    match bin_to_dec(&String::from("101")){
+    match bin_to_dec("101"){
         Ok(num) => {
             assert_eq!(
                 num,
@@ -78,18 +78,12 @@ pub fn test_dec_to_bin(){
 /// method from "./binary.rs".
 #[test]
 pub fn test_is_bin(){
-    let init_true: String = String::from("1010101");
-    let init_false: String = String::from("1010102");
     assert_eq!(
-        is_bin(
-            &init_true
-        ),
+        is_bin("1010101"),
         true
     );
     assert_eq!(
-        is_bin(
-            &init_false
-        ),
+        is_bin("1010102"),
         false
     );
 }
@@ -98,9 +92,8 @@ pub fn test_is_bin(){
 /// method from "./hexadecimal.rs".
 #[test]
 pub fn test_hex_to_dec(){
-    let hex: String = String::from("2A");
     let result: u32 = 42;
-    match hex_to_dec(&hex){
+    match hex_to_dec("2A"){
         Ok(num) => {
             assert_eq!(
                 num,
@@ -136,18 +129,12 @@ pub fn test_dec_to_hex(){
 /// method from "./hexadecimal.rs".
 #[test]
 pub fn test_is_hex(){
-    let init_true: String = String::from("1A1A1A");
-    let init_false: String = String::from("10101X");
     assert_eq!(
-        is_hex(
-            &init_true
-        ),
+        is_hex("1A1A1A"),
         true
     );
     assert_eq!(
-        is_hex(
-            &init_false
-        ),
+        is_hex("10101X"),
         false
     );
 }
@@ -156,29 +143,22 @@ pub fn test_is_hex(){
 /// method from "./octal.rs".
 #[test]
 pub fn test_is_octal(){
-    let init_true: String = String::from("151515");
-    let init_false: String = String::from("171918");
-    assert_eq!(
-        is_octal(
-            &init_true
-        ),
+   assert_eq!(
+        is_octal("151515"),
         true
     );
     assert_eq!(
-        is_octal(
-            &init_false
-        ),
+        is_octal("171918"),
         false
     );
 }
 
-/// Tests the "hex_to_dec"
-/// method from "./hexadecimal.rs".
+/// Tests the "octal_to_dec"
+/// method from "./octal.rs".
 #[test]
 pub fn test_octal_to_dec(){
-    let octal_num: String = String::from("1565");
     let result: u32 = 885;
-    match octal_to_dec(&octal_num){
+    match octal_to_dec("1565"){
         Ok(num) => {
             assert_eq!(
                 num,
@@ -190,3 +170,11 @@ pub fn test_octal_to_dec(){
         }
     }
 }
+
+/// Tests the "dec_to_octal"
+/// function from "./octal.rs".
+#[test]
+pub fn dec_to_octal(){
+}
+
+

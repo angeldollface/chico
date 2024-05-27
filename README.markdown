@@ -47,7 +47,7 @@ To understand how to use *Chico* in your project, please refer to the project's 
 
 ### Version 0.3.0
 
-- Made every terser and more elegant.
+- Made everything terser and more elegant.
 - Relicensed the project under the [DSL v1](https://github.com/angeldollface/doll-software-license).
 - Added support for base-8 numbers in the library.
 - Added support for base-8 numbers in the CLI.

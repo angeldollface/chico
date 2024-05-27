@@ -33,16 +33,9 @@ impl ChicoError {
     /// Implements a generic method to create
     /// a new instance of this data structure.
     pub fn new(details: &str) -> ChicoError {
-        return ChicoError {
+        ChicoError {
             details: details.to_owned()
-        };
-    }
-
-    /// Implements a generic method to return
-    /// a string representation of this 
-    /// data structure.
-    pub fn to_string(self) -> String {
-        return self.details.to_string();
+        }
     }
 }
 
@@ -56,6 +49,6 @@ impl Error for ChicoError {
 /// Implements the "Display" trait.
 impl Display for ChicoError {
     fn fmt(&self, f: &mut Formatter) -> Result {
-        return write!(f,"{}",self.details);
+        write!(f,"{}",self.details)
     }
 }

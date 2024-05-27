@@ -12,5 +12,8 @@ use chico::cli;
 /// of entry for the
 /// Rust compiler.
 fn main(){
-    cli();
+    match cli(){
+        Ok(res) => println!("{}", res),
+        Err(e) => eprintln!("{}", &e.to_string())
+    };
 }

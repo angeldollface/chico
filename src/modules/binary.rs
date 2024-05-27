@@ -10,7 +10,7 @@ use super::error::ChicoError;
 
 /// Attempts to convert a binary number as a string
 /// into a base-10 number and return it.
-pub fn bin_to_dec(bin: &String) -> Result<u32, ChicoError> {
+pub fn bin_to_dec(bin: &str) -> Result<u32, ChicoError> {
     let mut result: u32 = 0;
     let mut bin_chars: Vec<char> = bin.chars().collect();
     bin_chars.reverse();
@@ -20,7 +20,7 @@ pub fn bin_to_dec(bin: &String) -> Result<u32, ChicoError> {
                 Ok(power) => power,
                 Err(e) => return Err::<u32, ChicoError>(ChicoError::new(&e.to_string()))
             };
-            let to_add: u32 = (2 as u32).pow(power);
+            let to_add: u32 = 2_u32.pow(power);
             result += to_add;
         }
         else {}
@@ -35,20 +35,20 @@ pub fn dec_to_bin(decimal: &u32) -> String{
     let mut dec: u32 = decimal.to_owned();
     im_result.push((dec%2).to_string());
     while dec / 2 != 0 {
-      dec = dec / 2;
+      dec /= 2;
       let digit: String = (dec % 2).to_string();
       im_result.push(digit);
     }
     im_result.reverse();
     let result: String = im_result.join("");
-    return result;
+    result
 }
 
 /// Checks whether the supplied
 /// string is a binary number. Returns
 /// a boolean depending on whether this is
 /// the case or not.
-pub fn is_bin(subject: &String) -> bool {
+pub fn is_bin(subject: &str) -> bool {
     let mut result: bool = true;
     let chars: Vec<char> = subject.chars().collect();
     for i in chars {
@@ -57,5 +57,5 @@ pub fn is_bin(subject: &String) -> bool {
             result = false;
         }
     }
-    return result;
+    result
 }
