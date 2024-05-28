@@ -63,6 +63,8 @@ pub fn cli() -> Result<String, ChicoError> {
         "Angel Dollface"
     );
 
+    let err_msg: String = "No integer provided.".to_string();
+
     // The flag to supply Chico with base-2 numbers.
     app.add_arg(
         "bin",
@@ -185,7 +187,7 @@ pub fn cli() -> Result<String, ChicoError> {
         };
         let res: String = match dec_to_hex(&subject){
             Ok(res) => res,
-            Err(e) => return Err::<String, ChicoError>(ChicoError::new(&e.to_string()))
+            Err(_e) => return Err::<String, ChicoError>(ChicoError::new(&err_msg))
         };
         Ok(res)
 
@@ -198,7 +200,7 @@ pub fn cli() -> Result<String, ChicoError> {
         };
         let subject: u32 = match arg_data.parse(){
             Ok(subject) => subject,
-            Err(e) => return Err::<String, ChicoError>(ChicoError::new(&e.to_string()))
+            Err(_e) => return Err::<String, ChicoError>(ChicoError::new(&err_msg))
         };
         let res: String = dec_to_bin(&subject);
         Ok(res)
@@ -211,7 +213,7 @@ pub fn cli() -> Result<String, ChicoError> {
         };
         let subject: u32 = match arg_data.parse(){
             Ok(subject) => subject,
-            Err(e) => return Err::<String, ChicoError>(ChicoError::new(&e.to_string()))
+            Err(_e) => return Err::<String, ChicoError>(ChicoError::new(&err_msg))
         };
         // TO DO: implement dec to octal
         //Ok(subject.to_string())
