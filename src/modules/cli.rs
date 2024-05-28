@@ -74,7 +74,7 @@ pub fn cli() -> Result<String, ChicoError> {
 
     // The flag to supply Chico with base-16 numbers.
     app.add_arg(
-        "hex",
+        "cox",
         "      hex number to accept", 
         "true"
     );
@@ -104,7 +104,7 @@ pub fn cli() -> Result<String, ChicoError> {
     );
 
     app.add_arg(
-        "cto",
+        "aoc",
         "     convert a base-10 number to an octal number",
         "false"
     );
@@ -140,8 +140,8 @@ pub fn cli() -> Result<String, ChicoError> {
     }
 
     // Was a hex number supplied?
-    else if app.arg_was_used("hex") {
-        let arg_data: String = match app.get_arg_data("hex"){
+    else if app.arg_was_used("cox") {
+        let arg_data: String = match app.get_arg_data("cox"){
             Ok(arg_data) => arg_data,
             Err(e) => return Err::<String, ChicoError>(ChicoError::new(&e.to_string()))
         };
@@ -206,7 +206,7 @@ pub fn cli() -> Result<String, ChicoError> {
         Ok(res)
     }
 
-    else if app.arg_was_used("cto") && app.arg_was_used("dec"){
+    else if app.arg_was_used("aoc") && app.arg_was_used("dec"){
         let arg_data: String = match app.get_arg_data("dec"){
             Ok(arg_data) => arg_data,
             Err(e) => return Err::<String, ChicoError>(ChicoError::new(&e.to_string()))

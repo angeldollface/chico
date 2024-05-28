@@ -17,17 +17,17 @@ jobs:
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: -- -o EA1573
+          args: -- -c EA1573
       - name: "Convert a hexadecimal number. (long)"
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: -- --otl EA1573
+          args: -- --cox EA1573
       - name: "Convert a hexadecimal number. (nkd)"
         uses: actions-rs/cargo@v1
         with:
           command: run
-          args: -- otl EA1573
+          args: -- cox EA1573
       - name: "Convert a binary number. (short)"
         uses: actions-rs/cargo@v1
         with:
@@ -83,4 +83,3 @@ jobs:
         with:
           command: run
           args: -- --xoc --dec huhu
-      
