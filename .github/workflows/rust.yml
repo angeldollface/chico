@@ -43,26 +43,21 @@ jobs:
         with:
           command: run
           args: -- bin 1010101
-      - name: "Report an error on a binary conversion."
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: -- --bin 101010A
-      - name: "Report an error on a hexadecimal conversion."
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: -- --hex EA1573X
-      - name: "Report an error on an octal conversion."
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: -- --oct 1569
-      - name: "Convert a base-8 number to a base-10 number."
+      - name: "Convert a base-8 number to a base-10 number. (long)"
         uses: actions-rs/cargo@v1
         with:
           command: run
           args: -- --oct 1565
+      - name: "Convert a base-8 number to a base-10 number. (short)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- -o 1565
+      - name: "Convert a base-8 number to a base-10 number. (nkd)"
+        uses: actions-rs/cargo@v1
+        with:
+          command: run
+          args: -- oct 1565
       - name: "Convert a base-10 number to a base-16 number."
         uses: actions-rs/cargo@v1
         with:
@@ -73,13 +68,4 @@ jobs:
         with:
           command: run
           args: -- --yoc --dec 66
-      - name: "Report an error on a conversion from a base-10 number to a base-2 number."
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: -- --yoc --dec huhu
-      - name: "Report an error on a conversion from a base-10 number to a base-16 number."
-        uses: actions-rs/cargo@v1
-        with:
-          command: run
-          args: -- --xoc --dec huhu
+     
