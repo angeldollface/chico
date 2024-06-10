@@ -44,6 +44,11 @@ use super::hexadecimal::dec_to_hex;
 /// to a base-10 number.
 use super::octal::octal_to_dec;
 
+/// We import the method to
+/// convert a base-10 number to
+/// an octal number.
+use super::octal::dec_to_octal;
+
 /// Tests the "bin_to_dec"
 /// method from "./binary.rs".
 #[test]
@@ -174,7 +179,15 @@ pub fn test_octal_to_dec(){
 /// Tests the "dec_to_octal"
 /// function from "./octal.rs".
 #[test]
-pub fn dec_to_octal(){
+pub fn test_dec_to_octal(){
+    let num: &str = "16";
+    let result: String = "20".to_string();
+    match dec_to_octal(num){
+        Ok(res) => {
+            assert_eq!(res, result);
+        },
+        Err(e) => {
+            println!("{}", &e.to_string());
+        }
+    };
 }
-
-
