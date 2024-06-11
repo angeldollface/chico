@@ -53,9 +53,9 @@ pub fn dec_to_octal(number: &str) -> Result<String, ChicoError>{
     let mut div_res: u32 = integer / 8;
     while div_res != 0 {
         let octal_char: u32 = div_res % 8;
-        println!("{}", div_res);
         octal_num_chars.push(octal_char.to_string());
         div_res = div_res / 8;
     }
-    Ok(octal_num_chars.join(""))
+    let result: String = octal_num_chars.join("");
+    Ok(result)
 }
